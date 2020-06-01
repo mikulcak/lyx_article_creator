@@ -67,7 +67,7 @@
 \language_package default
 \inputencoding utf8
 \fontencoding auto
-\font_roman "default" "default"
+\font_roman "md-garamond" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
 \font_math "auto" "auto"
@@ -79,7 +79,7 @@
 \font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
+\use_microtype true
 \use_dash_ligatures true
 \graphics default
 \default_output_format default
@@ -89,7 +89,7 @@
 \float_placement class
 \float_alignment class
 \paperfontsize default
-\spacing single
+\spacing onehalf
 \use_hyperref false
 \papersize default
 \use_geometry false
