@@ -1,0 +1,42 @@
+\DeclareDatamodelEntrytypes{letter}
+\DeclareDatamodelFields[type=field,datatype=literal]{
+  sitekey,
+  sitetopic,
+}
+\DeclareDatamodelFields[type=list,datatype=name]{
+  askp,
+  ansp,
+}
+\DeclareDatamodelFields[type=field, datatype=date, skipout]{
+  askdate,
+  ansdate,
+  askeditdate,
+  anseditdate}
+\DeclareDatamodelFields[type=field, datatype=verbatim]{
+  askid,
+  askpid,
+  anspid,
+  ansid,
+}
+\DeclareDatamodelEntryfields[letter]{
+  sitekey,
+  sitetopic,
+  askid,
+  askp,
+  askpid,
+  ansp,
+  anspid,
+  ansid,
+  askyear,
+  askmonth,
+  askday,
+  ansyear,
+  ansmonth,
+  ansday,
+  askedityear,
+  askeditmonth,
+  askeditday,
+  ansedityear,
+  anseditmonth,
+  anseditday,
+  title}

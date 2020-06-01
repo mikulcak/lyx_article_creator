@@ -1,0 +1,168 @@
+\DeclareLanguageMapping{english}{english-letter}
+
+
+% \newbibmacro*{letterauthor}{%
+%   \thefield{author}
+% }
+
+% \newbibmacro*{letterAuthor}{%
+%   % \printfield[letterAuthor]{author}
+%   % \bibstring{letterfrom}
+%   \printnames{author}
+%   \setunit{\addperiod\space}
+%   % \printfield{author}%
+%   % \setunit{\addspace}%
+%   % \printfield{askid}%
+% }
+
+\DeclareBibliographyDriver{letter}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}
+  % \bibstring{letterstring}
+  % \printnames{author}%
+  % \printfield{usera}
+  \printnames{author}
+  \addperiod
+  % \setunit{\addperiod}
+  % 
+	\iffieldundef{title}
+	{\setunit{\addspace}}
+	{
+	\setunit{\addspace}
+	\printfield{title}
+	\setunit{\addspace}}
+  %  
+  % 
+  \iffieldundef{editoratype}
+  {
+    % \bibstring{letterstring}
+    Letter
+    {\addcomma}
+    % {\color{red} sorry, no recipient specified}
+  }
+  {
+    % \bibstring{letterstring}
+    Letter
+    % \bibstring{letterTo}
+    to
+    \setunit{\addspace}%
+    \printnames{editora}
+    {\addcomma}
+  }
+  % \setunit{\addspace}%
+  % \newunit\newblock
+  % on the
+  % \setunit{\addspace}%
+  % \newunit\newblock
+  \printdate
+  % \iffieldundef{usera}
+  % {
+  %   \setunit{\addperiod\space}
+  %   \textbf{No Archive Location Defined}
+  % }
+  % {
+  %   \setunit{\addperiod\space}
+  %   \printfield{usera}
+  %   \setunit{\addperiod\space}
+  %   \printfield{userb}
+  % }
+  % \usebibmacro{letterauthor}
+  % \usebibmacro{stackexchangequestion}%
+  % \newunit\newblock
+  % \usebibmacro{stackexchangeask}%
+  % \newunit\newblock
+  % \usebibmacro{stackexchangeans}%
+  % \newunit\newblock
+  % \usebibmacro{stackexchangesite}%
+  % \newunit\newblock
+  \usebibmacro{finentry}
+}
+
+\newbibmacro*{cite:short:letter}{%
+  \usebibmacro{cite:full:citepages}%
+  \printtext[hallo]{%
+    \usedriver
+      {\DeclareNameAlias{sortname}{default}}
+      {\thefield{entrytype}}}}
+
+% cite:short is really 'cite:subsequent'
+\renewbibmacro*{cite:short}{%
+  \ifbibmacroundef{cite:short:\strfield{entrytype}}
+    {\printnames{labelname}%
+     \setunit*{\printdelim{nametitledelim}}%
+     \printtext[bibhyperlink]{%
+       \printfield[citetitle]{labeltitle}}}
+    {\usebibmacro*{cite:short:\strfield{entrytype}}}}
+
+
+% \DeclareFieldFormat{letterAuthor}{\bibcplstring{author}\addcolon\space#1}
+% \DeclareFieldFormat{mynumber}{\bibcplstring{number}\addcolon\space#1}
+% \DeclareFieldFormat{mydoi}{DOI\addcolon\space\nolinkurl{#1}}
+
+
+% \DeclareFieldFormat[letter]{title}{\mkbibquote{#1\isdot}}
+
+% \DeclareFieldFormat{askpid}{%
+%   \mkbibparens{\ifhyperref
+%     {\href{http://tex.stackexchange.com/users/#1}{\nolinkurl{#1}}}
+%     {\nolinkurl{#1}}}
+% }
+
+% \DeclareFieldFormat{anspid}{%
+%   \mkbibparens{\ifhyperref
+%     {\href{http://tex.stackexchange.com/users/#1}{\nolinkurl{#1}}}
+%     {\nolinkurl{#1}}}
+% }
+
+% \DeclareFieldFormat{askid}{%
+%   \mkbibparens{\ifhyperref
+%     {\href{http://tex.stackexchange.com/q/#1}{\nolinkurl{#1}}}
+%     {\nolinkurl{#1}}}
+% }
+
+% \DeclareFieldFormat{ansid}{%
+%   \mkbibparens{\ifhyperref
+%     {\href{http://tex.stackexchange.com/a/#1}{\nolinkurl{#1}}}
+%     {\nolinkurl{#1}}}
+% }
+
+
+% \newbibmacro*{stackexchangeask}{%
+%   \bibstring{asked}%
+%   \setunit{\addspace}%
+%   \printaskdate%
+%   \iffieldundef{askedityear}%
+%     {}
+%     {\printtext[parens]{%
+%        \bibstring{edited}%
+%        \setunit{\addspace}%
+%        \printaskeditdate}}%
+%   \setunit{\addspace}%
+%   \bibstring{byauthor}%
+%   \setunit{\addspace}%
+%   \printnames{askp}%
+%   \setunit{\addspace}%
+%   \printfield{askpid}%
+% }
+
+% \newbibmacro*{stackexchangeans}{%
+%   \bibstring{answered}%
+%   \setunit{\addspace}%
+%   \printansdate%
+%   \iffieldundef{ansedityear}
+%     {}
+%     {\printtext[parens]{%
+%        \bibstring{edited}%
+%        \setunit{\addspace}%
+%        \printanseditdate}}%
+%   \setunit{\addspace}%
+%   \bibstring{byauthor}%
+%   \setunit{\addspace}%
+%   \printnames{ansp}%
+%   \setunit{\addspace}%
+%   \printfield{anspid}%
+% }
+
+% \newbibmacro*{stackexchangesite}{%
+%   \printfield{sitetopic}
+% }
